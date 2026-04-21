@@ -1,0 +1,392 @@
+:root {
+  --pdrm-blue: #0f3d91;
+  --pdrm-blue-dark: #0a2b68;
+  --pdrm-blue-light: #eaf2ff;
+  --pdrm-border: #cfdcf5;
+  --text-main: #1f2937;
+  --text-soft: #5b6472;
+  --white: #ffffff;
+  --danger: #c62828;
+  --danger-bg: #fff2f2;
+  --neutral: #e7edf8;
+  --shadow: 0 10px 28px rgba(15, 61, 145, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(180deg, #f4f8ff 0%, #edf4ff 100%);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.login-body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-page {
+  width: 100%;
+  max-width: 460px;
+}
+
+.login-card {
+  background: var(--white);
+  border: 1px solid var(--pdrm-border);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow);
+}
+
+.login-logo {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  margin: 0 auto 18px;
+}
+
+.login-title {
+  margin: 0;
+  text-align: center;
+  color: var(--pdrm-blue-dark);
+  font-size: 1.7rem;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: var(--text-soft);
+  margin: 10px 0 24px;
+  line-height: 1.5;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.login-error {
+  min-height: 20px;
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.95rem;
+}
+
+.topbar {
+  background: linear-gradient(90deg, var(--pdrm-blue-dark), var(--pdrm-blue));
+  color: var(--white);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.brand-subtitle {
+  margin: 4px 0 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.session-badge {
+  background: rgba(255, 255, 255, 0.14);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.app-shell {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 24px;
+}
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--pdrm-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 22px 22px 14px;
+  border-bottom: 1px solid #e8eef9;
+}
+
+.panel-header h2 {
+  margin: 0 0 6px;
+  color: var(--pdrm-blue-dark);
+  font-size: 1.25rem;
+}
+
+.panel-header p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.report-form {
+  padding: 22px;
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--pdrm-blue);
+  margin: 8px 0 14px;
+  font-size: 1rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #cfd8ea;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  color: var(--text-main);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--pdrm-blue);
+  box-shadow: 0 0 0 3px rgba(15, 61, 145, 0.12);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.96rem;
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--pdrm-blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--pdrm-blue-dark);
+}
+
+.btn-secondary {
+  background: #dce9ff;
+  color: var(--pdrm-blue-dark);
+}
+
+.btn-neutral {
+  background: var(--neutral);
+  color: var(--text-main);
+}
+
+.btn-danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #f5c7c7;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.form-notice {
+  margin: 14px 0 0;
+  min-height: 20px;
+  color: var(--pdrm-blue);
+  font-size: 0.95rem;
+}
+
+.panel-preview {
+  display: flex;
+  flex-direction: column;
+}
+
+.report-preview {
+  padding: 24px;
+  min-height: 100%;
+  background: #fcfdff;
+}
+
+.report-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #d7e4fb;
+  margin-bottom: 18px;
+}
+
+.report-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.report-head h3 {
+  margin: 0;
+  color: var(--pdrm-blue-dark);
+}
+
+.report-head p {
+  margin: 4px 0 0;
+  color: var(--text-soft);
+}
+
+.report-content {
+  white-space: pre-wrap;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.empty-state {
+  color: var(--text-soft);
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    padding: 16px;
+  }
+
+  .app-shell {
+    padding: 16px;
+  }
+
+  .report-form,
+  .report-preview {
+    padding: 18px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .topbar,
+  .panel-form,
+  .no-print,
+  .form-notice {
+    display: none !important;
+  }
+
+  .app-shell {
+    display: block;
+    padding: 0;
+  }
+
+  .panel,
+  .panel-preview {
+    border: none;
+    box-shadow: none;
+  }
+
+  .panel-header {
+    border: none;
+    padding: 0 0 12px;
+  }
+
+  .report-preview {
+    padding: 0;
+    background: #fff;
+  }
+}
