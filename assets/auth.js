@@ -2,28 +2,33 @@ const TEST_USER_ID = "R6197829";
 const TEST_PASSWORD = "Azizi";
 const SESSION_KEY = "pdrmLoggedInUser";
 
+function getCurrentPage() {
+  const path = window.location.pathname.split("/").pop();
+  return path || "index.html";
+}
+
 function redirectIfNotLoggedIn() {
   const isLoggedIn = sessionStorage.getItem(SESSION_KEY);
-  const currentPage = window.location.pathname.split("/").pop() || "login.html";
+  const currentPage = getCurrentPage();
 
-  if (!isLoggedIn && currentPage !== "login.html") {
-    window.location.href = "login.html";
+  if (!isLoggedIn && currentPage !== "index.html") {
+    window.location.href = "index.html";
   }
 }
 
 function redirectIfLoggedIn() {
   const isLoggedIn = sessionStorage.getItem(SESSION_KEY);
-  const currentPage = window.location.pathname.split("/").pop() || "login.html";
+  const currentPage = getCurrentPage();
 
-  if (isLoggedIn && currentPage === "login.html") {
-    window.location.href = "index.html";
+  if (isLoggedIn && currentPage === "index.html") {
+    window.location.href = "dashboard.html";
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname.split("/").pop() || "login.html";
+  const currentPage = getCurrentPage();
 
-  if (currentPage === "login.html") {
+  if (currentPage === "index.html") {
     redirectIfLoggedIn();
 
     const loginForm = document.getElementById("loginForm");
@@ -38,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (userId === TEST_USER_ID && password === TEST_PASSWORD) {
           sessionStorage.setItem(SESSION_KEY, userId);
-          window.location.href = "index.html";
+          window.location.href = "dashboard.html";
         } else {
           loginError.textContent = "ID Pengguna atau Kata Laluan tidak sah.";
         }
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (logoutBtn) {
       logoutBtn.addEventListener("click", () => {
         sessionStorage.removeItem(SESSION_KEY);
-        window.location.href = "login.html";
+        window.location.href = "index.html";
       });
     }
   }
