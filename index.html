@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Draf Laporan Polis</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-wrap">
+      <img src="public/pdrm.png" alt="Logo PDRM" class="brand-logo" />
+      <div>
+        <h1 class="brand-title">Sistem Draf Laporan Polis</h1>
+        <p class="brand-subtitle">Bantuan penyediaan draf laporan untuk semakan pegawai</p>
+      </div>
+    </div>
 
+    <div class="topbar-actions">
+      <span id="officerSession" class="session-badge">Pegawai Bertugas</span>
+      <button id="logoutBtn" class="btn btn-outline">Log Keluar</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="panel panel-form">
+      <div class="panel-header">
+        <h2>Maklumat Input</h2>
+        <p>Isi maklumat pengadu dan kejadian untuk menjana draf laporan.</p>
+      </div>
+
+      <form id="reportForm" class="report-form">
+        <div class="section-title">Maklumat Balai / Pegawai</div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="balaiPolis">Balai Polis</label>
+            <input list="balaiPolisList" id="balaiPolis" name="balaiPolis" placeholder="Pilih atau taip balai polis" />
+            <datalist id="balaiPolisList"></datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="negeri">Negeri</label>
+            <input list="negeriList" id="negeri" name="negeri" placeholder="Pilih negeri" />
+            <datalist id="negeriList"></datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="namaPegawai">Nama Pegawai</label>
+            <input type="text" id="namaPegawai" name="namaPegawai" placeholder="Contoh: Insp. Ahmad" />
+          </div>
+
+          <div class="form-group">
+            <label for="noBadan">No. Badan / ID Pegawai</label>
+            <input type="text" id="noBadan" name="noBadan" placeholder="Contoh: R1234567" />
+          </div>
+
+          <div class="form-group">
+            <label for="tarikhLaporan">Tarikh Laporan</label>
+            <input type="date" id="tarikhLaporan" name="tarikhLaporan" />
+          </div>
+
+          <div class="form-group">
+            <label for="masaLaporan">Masa Laporan</label>
+            <input type="time" id="masaLaporan" name="masaLaporan" />
+          </div>
+        </div>
+
+        <div class="section-title">Maklumat Pengadu</div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="namaPengadu">Nama Pengadu</label>
+            <input type="text" id="namaPengadu" name="namaPengadu" placeholder="Masukkan nama penuh pengadu" />
+          </div>
+
+          <div class="form-group">
+            <label for="noIc">No. KP / Passport</label>
+            <input type="text" id="noIc" name="noIc" placeholder="Masukkan no. KP / passport" />
+          </div>
+
+          <div class="form-group">
+            <label for="telefon">No. Telefon</label>
+            <input type="text" id="telefon" name="telefon" placeholder="Masukkan no. telefon" />
+          </div>
+
+          <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat pengadu" />
+          </div>
+        </div>
+
+        <div class="section-title">Butiran Kejadian</div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="tarikhKejadian">Tarikh Kejadian</label>
+            <input type="date" id="tarikhKejadian" name="tarikhKejadian" />
+          </div>
+
+          <div class="form-group">
+            <label for="masaKejadian">Masa Kejadian</label>
+            <input type="time" id="masaKejadian" name="masaKejadian" />
+          </div>
+
+          <div class="form-group">
+            <label for="lokasiKejadian">Lokasi Kejadian</label>
+            <input type="text" id="lokasiKejadian" name="lokasiKejadian" placeholder="Contoh: Parkir Apartment Seri Mutiara" />
+          </div>
+
+          <div class="form-group">
+            <label for="jenisKes">Jenis Kes</label>
+            <input list="jenisKesList" id="jenisKes" name="jenisKes" placeholder="Pilih atau taip jenis kes" />
+            <datalist id="jenisKesList"></datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="seksyen">Seksyen</label>
+            <input list="seksyenList" id="seksyen" name="seksyen" placeholder="Pilih atau taip seksyen" />
+            <datalist id="seksyenList"></datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="kerugian">Kerugian / Kesan</label>
+            <input type="text" id="kerugian" name="kerugian" placeholder="Contoh: RM5,000 / kecederaan ringan / tiada" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="kronologi">Kronologi Ringkas</label>
+          <textarea id="kronologi" name="kronologi" rows="5" placeholder="Masukkan fakta ringkas kejadian seperti yang dinyatakan oleh pengadu"></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="suspek">Maklumat Suspek</label>
+            <textarea id="suspek" name="suspek" rows="4" placeholder="Masukkan maklumat suspek jika ada"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="saksi">Maklumat Saksi</label>
+            <textarea id="saksi" name="saksi" rows="4" placeholder="Masukkan maklumat saksi jika ada"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tindakanDipohon">Permohonan / Tindakan Dipohon</label>
+          <textarea id="tindakanDipohon" name="tindakanDipohon" rows="3" placeholder="Contoh: mohon siasatan lanjut dan tindakan sewajarnya"></textarea>
+        </div>
+
+        <div class="button-row no-print">
+          <button type="button" id="generateBtn" class="btn btn-primary">Jana Draf</button>
+          <button type="button" id="copyBtn" class="btn btn-secondary" disabled>Salin</button>
+          <button type="button" id="printBtn" class="btn btn-neutral" disabled>Cetak</button>
+          <button type="button" id="resetBtn" class="btn btn-danger">Reset</button>
+        </div>
+
+        <p id="formNotice" class="form-notice" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel panel-preview">
+      <div class="panel-header">
+        <h2>Draf Laporan</h2>
+        <p>Draf ini dijana secara automatik dan tertakluk kepada semakan pegawai bertugas.</p>
+      </div>
+
+      <article id="printArea" class="report-preview">
+        <div class="report-head">
+          <img src="public/pdrm.png" alt="Logo PDRM" class="report-logo" />
+          <div>
+            <h3>LAPORAN POLIS</h3>
+            <p>Sistem Draf Laporan Polis</p>
+          </div>
+        </div>
+
+        <div id="reportContent" class="report-content empty-state">
+          Draf laporan akan dipaparkan di sini selepas anda menekan butang <strong>Jana Draf</strong>.
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="assets/auth.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
